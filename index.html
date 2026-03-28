@@ -255,7 +255,14 @@
   let authMode = 'signin';
   let isDark = false;
 
-  // If already logged in, go straight to app
+  // Clear stale non-MongoDB tokens (old numeric ids from previous version)
+  const _oldUser = JSON.parse(localStorage.getItem('dhb_user') || 'null');
+  if (_oldUser && typeof _oldUser.id === 'number') {
+    localStorage.removeItem('dhb_token');
+    localStorage.removeItem('dhb_user');
+  }
+
+  // If already logged in with a valid token, go straight to app
   if (localStorage.getItem('dhb_token')) {
     window.location.href = 'app.html';
   }
