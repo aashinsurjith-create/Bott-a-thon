@@ -32,7 +32,7 @@ const CONSTRAINTS = {
   // ── AI Provider Configuration ─────────────────────────────
   AI_PROVIDER: "gemini",
   AI_MODEL: "gemini-2.0-flash",
-  AI_API_KEY: "AIzaSyDlsuVuy_i5Dhspxa7SRspmxYQcEscWHQY",
+  AI_API_KEY: process.env.GEMINI_API_KEY || "",
   AI_MAX_TOKENS: 1024,
   AI_TEMPERATURE: 0.7,
 
